@@ -1,5 +1,6 @@
 package com.gkxqh.nekoclock.ui
 
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.PredictiveBackHandler
 import androidx.compose.animation.*
@@ -10,10 +11,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.platform.LocalContext
 import com.gkxqh.nekoclock.data.SettingsManager
+import com.gkxqh.nekoclock.ui.components.LandscapeBox
 import com.gkxqh.nekoclock.ui.screens.ClockScreen
 import com.gkxqh.nekoclock.ui.screens.SettingsScreen
 import kotlinx.coroutines.launch
-import android.util.Log
 
 @Composable
 fun ClockApp(settingsManager: SettingsManager) {
@@ -73,22 +74,24 @@ fun ClockApp(settingsManager: SettingsManager) {
                 }
             }
     ) { targetShowSettings ->
-        if (targetShowSettings) {
-            SettingsScreen(
-                settings = currentSettings,
-                onSettingChange = { key, value ->
-                    scope.launch {
-                        @Suppress("UNCHECKED_CAST")
-                        settingsManager.updateSetting(key as androidx.datastore.preferences.core.Preferences.Key<Any>, value)
-                    }
-                },
-                onBack = { showSettings = false }
-            )
-        } else {
-            ClockScreen(
-                settings = currentSettings,
-                onSettingsClick = { showSettings = true }
-            )
+        LandscapeBox {
+            if (targetShowSettings) {
+                SettingsScreen(
+                    settings = currentSettings,
+                    onSettingChange = { key, value ->
+                        scope.launch {
+                            @Suppress("UNCHECKED_CAST")
+                            settingsManager.updateSetting(key as androidx.datastore.preferences.core.Preferences.Key<Any>, value)
+                        }
+                    },
+                    onBack = { showSettings = false }
+                )
+            } else {
+                ClockScreen(
+                    settings = currentSettings,
+                    onSettingsClick = { showSettings = true }
+                )
+            }
         }
     }
 }
