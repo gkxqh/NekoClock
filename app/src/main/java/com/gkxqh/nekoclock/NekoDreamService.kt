@@ -1,5 +1,6 @@
 package com.gkxqh.nekoclock
 
+import android.content.pm.ActivityInfo
 import android.service.dreams.DreamService
 import androidx.compose.ui.platform.ComposeView
 import androidx.lifecycle.Lifecycle
@@ -40,6 +41,9 @@ class NekoDreamService : DreamService(), LifecycleOwner, ViewModelStoreOwner, Sa
 
         isInteractive = true
         isFullscreen = true
+        
+        // 强制横屏显示 (允许感应器旋转但仅限横向)
+        window.attributes.screenOrientation = ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE
 
         settingsManager = SettingsManager(this)
 
