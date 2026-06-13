@@ -1,6 +1,6 @@
 # NekoClock
 
-> 一个基于 Jetpack Compose 开发的、支持高度自定义的 Android 全屏横屏桌面时钟。
+> 一个基于 Jetpack Compose 开发的、支持高度自定义的 Android 全屏桌面时钟。
 
 ## ✨ 项目亮点
 
