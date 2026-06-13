@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.gkxqh.nekoclock"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.gkxqh.nekoclock"
