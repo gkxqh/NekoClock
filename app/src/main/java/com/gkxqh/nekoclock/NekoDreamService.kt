@@ -20,11 +20,11 @@ import com.gkxqh.nekoclock.ui.theme.NekoClockTheme
 class NekoDreamService : DreamService(), LifecycleOwner, ViewModelStoreOwner, SavedStateRegistryOwner {
 
     private val lifecycleRegistry = LifecycleRegistry(this)
-    private val viewModelStore = ViewModelStore()
+    private val _viewModelStore = ViewModelStore()
     private val savedStateRegistryController = SavedStateRegistryController.create(this)
 
     override val lifecycle: Lifecycle get() = lifecycleRegistry
-    override val viewModelStore: ViewModelStore get() = viewModelStore
+    override val viewModelStore: ViewModelStore get() = _viewModelStore
     override val savedStateRegistry: SavedStateRegistry get() = savedStateRegistryController.savedStateRegistry
 
     private lateinit var settingsManager: SettingsManager
@@ -44,7 +44,6 @@ class NekoDreamService : DreamService(), LifecycleOwner, ViewModelStoreOwner, Sa
         settingsManager = SettingsManager(this)
 
         val composeView = ComposeView(this).apply {
-            // Set required owners for Compose to work in a Service
             setViewTreeLifecycleOwner(this@NekoDreamService)
             setViewTreeViewModelStoreOwner(this@NekoDreamService)
             setViewTreeSavedStateRegistryOwner(this@NekoDreamService)
@@ -68,7 +67,7 @@ class NekoDreamService : DreamService(), LifecycleOwner, ViewModelStoreOwner, Sa
 
     override fun onDestroy() {
         lifecycleRegistry.handleLifecycleEvent(Lifecycle.Event.ON_DESTROY)
-        viewModelStore.clear()
+        _viewModelStore.clear()
         super.onDestroy()
     }
 }
