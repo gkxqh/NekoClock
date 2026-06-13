@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">NekoClock</string>
+    <string name="settings">设置</string>
+    <string name="back">返回</string>
+    <string name="back_with_arrow">← 返回</string>
+    
+    <!-- Settings Sections -->
+    <string name="section_wallpaper">背景壁纸</string>
+    <string name="section_personalization">个性化</string>
+    <string name="section_display">显示选项</string>
+    <string name="section_adjust">调整</string>
+    
+    <!-- Wallpaper -->
+    <string name="wallpaper_none">无</string>
+    
+    <!-- Personalization -->
+    <string name="text_color">文字颜色</string>
+    <string name="hex_color_label">HEX 颜色代码</string>
+    <string name="blur_background_title">毛玻璃背景</string>
+    <string name="blur_background_desc">模糊背景壁纸 (Android 12+)</string>
+    <string name="glow_text_title">文字发光</string>
+    <string name="glow_text_desc">为文字添加霓虹灯效</string>
+    
+    <!-- Display Options -->
+    <string name="show_seconds">显示秒数</string>
+    <string name="show_date">显示日期</string>
+    <string name="show_battery">显示电量</string>
+    <string name="burn_in_protection_title">防烧屏保护</string>
+    <string name="burn_in_protection_desc">每分钟微调文字位置</string>
+    <string name="hide_settings_icon_title">隐藏设置图标</string>
+    <string name="hide_settings_icon_desc">点击右上角区域唤出</string>
+    
+    <!-- Adjustments -->
+    <string name="font_size">文字大小</string>
+    <string name="brightness">屏显亮度</string>
+    <string name="font_style">字体样式</string>
+    
+    <!-- Misc -->
+    <string name="delete">删除</string>
+</resources>
